@@ -20,30 +20,32 @@ public class App {
         
         // now start the guessing game!
         while ( tries > 0){
-            //get a guess
+            //instruct the user of the objective
             System.out.println("HUMAN! please guess a number between 1 and 20");
             System.out.println("YOU HAVE " + tries + " ATTEMPTS... OR ELSE!!!!");
+            //get a guess
             guess = myScanner.nextInt();
 
             //does guess equal answer?
             if (guess == answer){
                 System.out.println("CONGRADULATIONS ARE IN ORDER FOR YOUR SURVIVAL, THAT WAS CORRECT");
-                break;
-            } else if (guess < 1 || guess > 20) {
+                break; // breaks out of the loop if the answer is correct
+            } else if (guess < 1 || guess > 20) { //is the answer out of range?
                 System.out.println("Enter a number between 1 and 20");
-                tries --;
-                continue;
+                tries --; //take a try away for each iteration of this
+                continue; //continues the loop
             }
             if (guess > answer) {
                 System.out.println("guess is too high, pick a lower number!");
-                tries --;
-                continue;
+                tries --; //take a try away for each iteration of this
+                continue; 
             } else {
                 System.out.println("guess is too low, pick a higher number!");
-                tries --;
+                tries --; //take a try away for each iteration of this
             }
         
         }
+        //failure or passing statement
         if (tries == 0) {
             System.out.println("YOU HAVE FAILED, PREPARE FOR ELIMINATION!");
         } else {
